@@ -1,22 +1,35 @@
+.GlobalContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.Header{
+    display: block;
+    margin: 5px;
+    text-align: center;
+}
+
 .MazeContainer{
     display: flex;
     width: 100%;
-
     align-items: center;
     border-width: 1;
     border-style: solid;
     border-color: black;
 }
+
 .Maze{
-    margin: auto;
+    margin: 5px auto 5px auto;
     display: table;
     border-width: 1;
     border-style: solid;
     border-color: black;
 }
+
 .MazeRow{
     display: table-row;
 }
+
 .MazeCell{
     display:table-cell;
 }

@@ -9,7 +9,7 @@
         <?php
         
             $size=array('w'=>21,'h'=>21);
-            
+
             $mazeCells=array(
                 'TR'=>createMazeCellType('img/maze/corner_tr.bmp',true,false,false,true),
                 'TL'=>createMazeCellType('img/maze/corner_tl.bmp',true,true,false,false),
@@ -87,6 +87,7 @@
                     }
                 }
             }
+
             function createMaze(){
                 global $mazeMoves;
                 global $size;
@@ -148,13 +149,16 @@
                 return $mazeDiv;
             }
         ?>
+        
         <body>
+            <div class='GlobalContainer'>
+            <div class='Header'>Snake Generator</div>
             <div class='MazeContainer'>
             <?php
             echo renderMaze(createMaze());
             ?>
             </div>
-            
+            </div>
             
         </body>
     </head>
