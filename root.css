@@ -7,6 +7,9 @@
     display: block;
     margin: 5px;
     text-align: center;
+    font-size: 23;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 3px;
 }
 
 .MazeContainer{
@@ -22,8 +25,8 @@
     margin: 5px auto 5px auto;
     padding: 5px;
     display: table;
-    border-radius: 2%;
-    box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 3px;
 }
 
 .MazeRow{
