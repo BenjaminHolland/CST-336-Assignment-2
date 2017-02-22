@@ -8,9 +8,7 @@
         </style>
         <?php
         
-            function createMazeCellType($path,$top,$left,$bottom,$right){
-                return array('path'=>$path,'edges'=>array('top'=>$top,'bottom'=>$bottom,'left'=>$left,'right'=>$right));
-            }
+            $size=array('w'=>21,'h'=>21);
             
             $mazeCells=array(
                 'TR'=>createMazeCellType('img/maze/corner_tr.bmp',true,false,false,true),
@@ -21,64 +19,51 @@
                 
             $mazeMoves=array(
                 'U'=>array('x'=>0,'y'=>-1),
-                
                 'D'=>array('x'=>0,'y'=>1),
-                
                 'L'=>array('x'=>-1,'y'=>0),
-                
                 'R'=>array('x'=>1,'y'=>0),
                 );
                 
-            $size=array('w'=>21,'h'=>21);
-
+            function createMazeCellType($path,$top,$left,$bottom,$right){
+                return array('path'=>$path,'edges'=>array('top'=>$top,'bottom'=>$bottom,'left'=>$left,'right'=>$right));
+            }
+            
             function writeMaze(&$maze,$pos,$move){
-                //echo '<p>';
                 global $size;
                 global $mazeMoves;
+            
                 $newPos=array('x'=>($pos['x']+$move['x']),'y'=>($pos['y']+$move['y']));
                 if($newPos['x']<0||$newPos['x']>=$size['w']) return;
                 if($newPos['y']<0||$newPos['y']>=$size['h']) return;
                 if($maze[$newPos['y']][$newPos['x']]!=null) return;
+            
                 $next=nextMazeCell($move);
-              
                 if($next['key']=='TR'&&($move==$mazeMoves['D'])){
-                    //echo "TRD";
                     $move=$mazeMoves['R'];
                 }else if($next['key']=='TR'&&($move==$mazeMoves['L'])){
-                    //echo "TRL";
                     $move=$mazeMoves['U'];
                 }else if($next['key']=='TL'&&($move==$mazeMoves['R'])){
-                    //echo "TLR";
                     $move=$mazeMoves['U'];
                 }else if($next['key']=='TL'&&($move==$mazeMoves['D'])){
-                    //echo "TLD";
                     $move=$mazeMoves['L'];
                 }else if($next['key']=='BR'&&($move==$mazeMoves['U'])){
-                    //echo "BRU";
                     $move=$mazeMoves['R'];
                 }else if($next['key']=='BR'&&($move==$mazeMoves['L'])){
-                    //echo "BRL";
                     $move=$mazeMoves['D'];
                 }else if($next['key']=='BL'&&($move==$mazeMoves['U'])){
-                    //echo "BLU";
                     $move=$mazeMoves['L'];
                 }else if($next['key']=='BL'&&($move==$mazeMoves['R'])){
-                  //  echo "BLR";
                     $move=$mazeMoves['D'];
                 }
-                
-               // var_dump($move);
-               // echo '<p>';
-               // var_dump($newPos);
-              //  echo '</p>';
+            
                 $maze[$newPos['y']][$newPos['x']]=$next['value']['path'];
-                writeMaze($maze,$newPos,$move);  
                 
-               //     echo '</p>';
+                writeMaze($maze,$newPos,$move);  
             }
             
             function nextMazeCell($pathMove){
                 global $mazeCells;
+                
                 $cellChoices;
                 if($pathMove['x']==1){
                     $cellChoices=array_filter($mazeCells,function ($val){return $val['edges']['left'];});
@@ -89,15 +74,14 @@
                 }else if($pathMove['y']==-1){
                     $cellChoices=array_filter($mazeCells,function($val){return $val['edges']['bottom'];});
                 }
-               // var_dump($cellChoices);
-               $key=array_rand($cellChoices);
-                return array('key'=>$key,'value'=>$mazeCells[$key]);
+                
+                return array('key'=>$key,'value'=>$mazeCells[array_rand($cellChoices)]);
             }
-            
             
             function createMaze(){
                 global $mazeMoves;
                 global $size;
+                
                 $maze=array();
                 for($row=0;$row<$size['h'];$row++){
                     array_push($maze,array());
@@ -124,7 +108,6 @@
                 $move=$mazeMoves['R'];
                 $pos=array('x'=>10,'y'=>10);
                 writeMaze($maze,$pos,$move);
-                
                 
                 for($row=0;$row<$size['h'];$row++){
                     for($col=0;$col<$size['w'];$col++){
