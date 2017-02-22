@@ -78,25 +78,27 @@
                 return array('key'=>$key,'value'=>$mazeCells[array_rand($cellChoices)]);
             }
             
-            function createMaze(){
-                global $mazeMoves;
-                global $size;
-                
-                $maze=array();
+            function initializeMaze($maze){
                 for($row=0;$row<$size['h'];$row++){
                     array_push($maze,array());
                     for($col=0;$col<$size['w'];$col++){
                         array_push($maze[$row],null);
                     }
                 }
+            }
+            function createMaze(){
+                global $mazeMoves;
+                global $size;
+                
+                $maze=array();
+                initializeMaze($maze);
                 
                 $maze[10][10]=createMazeCellType('img/maze/terminator.bmp',true,true,true,true)['path'];
                 
                 $move=$mazeMoves['U'];
                 $pos=array('x'=>10,'y'=>10);
                 writeMaze($maze,$pos,$move);
-                
-                
+                   
                 $move=$mazeMoves['D'];
                 $pos=array('x'=>10,'y'=>10);
                 writeMaze($maze,$pos,$move);
@@ -144,7 +146,6 @@
                 $mazeDiv.="</div>";
                 return $mazeDiv;
             }
-            
         ?>
         <body>
             <div class='MazeContainer'>
