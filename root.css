@@ -1,0 +1,22 @@
+.MazeContainer{
+    display: flex;
+    width: 100%;
+
+    align-items: center;
+    border-width: 1;
+    border-style: solid;
+    border-color: black;
+}
+.Maze{
+    margin: auto;
+    display: table;
+    border-width: 1;
+    border-style: solid;
+    border-color: black;
+}
+.MazeRow{
+    display: table-row;
+}
+.MazeCell{
+    display:table-cell;
+}
