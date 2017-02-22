@@ -20,10 +20,10 @@
 
 .Maze{
     margin: 5px auto 5px auto;
+    padding: 5px;
     display: table;
-    border-width: 1;
-    border-style: solid;
-    border-color: black;
+    border-radius: 2%;
+    box-shadow: rgba(0,0,0,0.8) 0 0 10px;
 }
 
 .MazeRow{
