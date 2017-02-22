@@ -16,11 +16,19 @@
     display: flex;
     width: 100%;
     align-items: center;
-    border-width: 1;
+
+}
+
+.ContentContainer{
+    display: flex;
+    flex-direction: row;
+    
+}
+.Sidebar{
+        border-width: 1;
     border-style: solid;
     border-color: black;
 }
-
 .Maze{
     margin: 5px auto 5px auto;
     padding: 5px;

@@ -153,11 +153,17 @@
         <body>
             <div class='GlobalContainer'>
             <div class='Header'>Snake Generator</div>
+            <div class='ContentContainer'>
             <div class='MazeContainer'>
+            <div class="Sidebar">
+                This is some content! Woo!
+            </div>
             <?php
             echo renderMaze(createMaze());
             ?>
+            </div>    
             </div>
+            
             </div>
             
         </body>
