@@ -74,11 +74,12 @@
                 }else if($pathMove['y']==-1){
                     $cellChoices=array_filter($mazeCells,function($val){return $val['edges']['bottom'];});
                 }
-                
-                return array('key'=>$key,'value'=>$mazeCells[array_rand($cellChoices)]);
+                $key=array_rand($cellChoices);
+                return array('key'=>$key,'value'=>$mazeCells[$key]);
             }
             
-            function initializeMaze($maze){
+            function initializeMaze(&$maze){
+                global $size;
                 for($row=0;$row<$size['h'];$row++){
                     array_push($maze,array());
                     for($col=0;$col<$size['w'];$col++){
