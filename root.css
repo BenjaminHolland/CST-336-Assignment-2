@@ -101,4 +101,7 @@ Flark{
     flex: 1 0 auto;
     
 } 
-   
+
+body{
+    margin:20px;
+}   
