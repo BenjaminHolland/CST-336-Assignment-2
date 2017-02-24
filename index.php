@@ -152,17 +152,22 @@
         
         <body>
             <div class='GlobalContainer'>
-            <div class='Header'>Snake Generator</div>
-            <div class='ContentContainer'>
-            <div class='MazeContainer'>
-            <div class="Sidebar">
-                This is some content! Woo!
-            </div>
-            <?php
-            echo renderMaze(createMaze());
-            ?>
-            </div>    
-            </div>
+                <div class='Header'>Quadrapus Generator</div>
+                <div class='ContentContainer'>
+                    <div class='TextContainer'>
+                      <div class='TextContent'>
+                        Welcome to the Quadrapus generator, the only generator that tells you it generates quadrapusus <Flark>(because it does)</Flark>. Press the button to make a new Quadrapus.
+                      </div>
+                    </div>
+                    <div class='MazeContainer'>
+                        <?php
+                            echo renderMaze(createMaze());
+                        ?>
+                    </div>
+                    <div class='ButtonContainer'>
+                      <a class='Button' href="index.php">New Quadrapus!</a>
+                    </div>
+                </div>
             
             </div>
             

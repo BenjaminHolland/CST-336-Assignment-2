@@ -13,22 +13,35 @@
 }
 
 .MazeContainer{
+    margin: 5px;
     display: flex;
     width: 100%;
     align-items: center;
+    flex: 1 0 auto;
+}
 
+.TextContainer{
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 3px;
+}
+
+Flark{
+    display: inline;
+    color: red;
+}
+
+.TextContent{
+    margin:5px auto;
+    text-align: center;
 }
 
 .ContentContainer{
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: column;
+    width: 100%;
 }
-.Sidebar{
-        border-width: 1;
-    border-style: solid;
-    border-color: black;
-}
+
 .Maze{
     margin: 5px auto 5px auto;
     padding: 5px;
@@ -42,5 +55,50 @@
 }
 
 .MazeCell{
-    display:table-cell;
+    display: table-cell;
 }
+
+.Button {
+   margin: 5px auto;
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 8.5px 17px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+   
+.Button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+   
+.Button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+  
+   }
+   
+.ButtonContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 0 auto;
+    
+} 
+   
